@@ -1,0 +1,86 @@
+# ==========================
+# Django + VS Code .gitignore
+# ==========================
+
+# Ambiente virtual
+venv/
+.env/
+.env.*
+
+# Banco de dados local (SQLite)
+db.sqlite3
+
+# Configurações e chaves secretas
+*.env
+*.ini
+*.cfg
+*.secret
+secrets.json
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled / binary files
+*.so
+*.dll
+*.exe
+*.dylib
+
+# Arquivos de log e debug
+*.log
+*.pot
+
+# Pastas de build e distribuição
+build/
+dist/
+*.egg-info/
+
+# Arquivos estáticos e de mídia gerados
+staticfiles/
+media/
+static/
+
+# Cache de templates (Django Template Cache)
+*.py,cover
+htmlcov/
+
+# Migrations (opcional manter, mas se quiser ignorar temporariamente)
+# */migrations/
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# macOS / Linux / Windows
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Arquivos temporários do sistema
+~$*
+*.swp
+*.swo
+
+# Testes e cobertura
+.coverage
+.tox/
+.nox/
+pytest_cache/
+.cache/
+
+# Arquivos de lock e dependências
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
