@@ -118,7 +118,38 @@ Como não temos mais o arquivo de modelos na pasta /website,
 podemos, então, excluir a pasta /migrations e o migrations.py, pois
 estes serão gerados e gerenciados pelo app helloworld.
 
-Como não temos mais o arquivo de modelos na pasta /website,
-podemos, então, excluir a pasta /migrations e o migrations.py, pois
-estes serão gerados e gerenciados pelo app helloworld.
+
+A Camada de Modelos tem uma função essencial na arquitetura das
+aplicações desenvolvidas com o Django. É nela que descrevemos os
+campos e comportamentos das entidades que irão compor nosso
+sistema. Também é nela que reside a lógica de acesso aos dados da nossa
+aplicação. Vamos ver como é simples manipular os dados do nosso
+sistema através da poderosa API de Acesso a Dados do Django.
+
+Criando a classe Funcionario
+helloworld/models.py.
+
+Migração é a forma do Django de propagar as alterações feitas
+em seu modelo (adição de um novo campo, deleção de um modelo,
+etc...) ao seu esquema do banco de dados. Elas foram desenvolvidas
+para serem (a maioria das vezes) automáticas, mas cabe a você
+saber a hora de fazê-las, de executá-las e de resolver os problemas
+comuns que você possa vir a ser submetidos.
+
+Portanto, toda vez que você alterar o seu modelo, não se esqueça
+de executar: 
+python manage.py makemigrations helloworld
+
+apenas 
+
+python manage.py makemigrations 
+
+deve bastar!
+
+Agora só falta executar o comando migrate, propriamente dito!
+Para isso, vamos para a raíz do projeto e executamos:
+
+python manage.py migrate
+
+API DE ACESSO A DADOS
 
