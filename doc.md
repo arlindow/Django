@@ -144,7 +144,8 @@ apenas
 
 python manage.py makemigrations 
 
-deve bastar!
+deve bastar! (veja na saída do comando makemigrations: Create model
+Funcionario)
 
 Agora só falta executar o comando migrate, propriamente dito!
 Para isso, vamos para a raíz do projeto e executamos:
@@ -152,4 +153,99 @@ Para isso, vamos para a raíz do projeto e executamos:
 python manage.py migrate
 
 API DE ACESSO A DADOS
+
+Vamos testar a adição de um novo funcionário utilizando o shell do
+Django. Para isso, digite o comando: 
+
+python manage.py shell
+
+adicionar um novo funcionário,
+
+from helloworld.models import Funcionario
+
+funcionario = Funcionario(
+nome='Marcos',
+sobrenome='da Silva',
+cpf='015.458.895-50',
+tempo_de_servico=5,
+remuneracao=10500.00
+)
+funcionario.save()
+
+LISTAR
+
+Funcionario.objetos.values()
+
+Funcionario.objetos.all()
+<QuerySet [<Funcionario: Funcionario object (1)>]>
+
+# Assim mostrará o nome e sobrenome:
+class Funcionario... 
+
+def __str__(self):
+        return f"{self.nome} {self.sobrenome}"
+
+Funcionario.objetos.all()
+<QuerySet [<Funcionario: Marcos da Silva>]>
+
+Regra de ouro: Sempre que alterar seu models.py:
+python manage.py makemigrations 
+python manage.py migrate
+
+através do campo objetos podemos fazer queries
+incríveis sem uma linha de SQL!
+
+Exemplo de um query um pouco mais complexa:
+
+Busque todos os funcionários que tenham mais de 3 anos de
+serviço, que ganhem menos de R$ 5.000,00 de remuneração e
+que não tenham Marcos no nome.
+
+funcionarios = Funcionario.objetos
+   .exclude(name="Marcos")
+   .filter(tempo_de_servico__gt=3)
+   .filter(remuneracao__lt=5000.00)
+   .all()
+
+exclude() retira linhas da pesquisa
+filter() filtra a busca
+
+para filtrar por maior que concatenamos a string
+__gt (gt = greater than = maiores que)
+
+__lt (lt = less than =
+menores que) para resultados menores que o valor passado.
+
+O método .all() ao final da query serve para retornar todas as
+linhas do banco que cumpram os filtros da nossa busca
+
+o first() que retorna apenas o primeiro registro,
+
+last(), que
+retorna o último, entre outros.
+
+vamos ver como é simples excluir um Funcionário:
+
+funcionario = Funcionario
+.objetos
+.filter(id=1)
+.first()
+# Agora, o deletamos!
+funcionario.delete()
+
+Podemos fazer essa alteração da seguinte forma:
+
+# Primeiro, buscamos o funcionario desejado
+funcionario = Funcionario
+.objetos
+.filter(id=13)
+.first()
+# Alteramos seu sobrenome
+funcionario.sobrenome = funcionario.sobrenome + " Albuquerque"
+# Salvamos as alterações
+funcionario.save()
+
+
+
+CAMADA VIEW
 

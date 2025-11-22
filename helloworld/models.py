@@ -36,3 +36,5 @@ class Funcionario(models.Model):
 
 
     objetos = models.Manager()
+   
+    
