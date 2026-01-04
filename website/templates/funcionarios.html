@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Funcionários</title>
+</head>
+<body>
+
+<h1>Lista de Funcionários</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Remuneração</th>
+            <th>Tempo de Serviço</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for funcionario in funcionarios %}
+        <tr>
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.sobrenome }}</td>
+            <td>{{ funcionario.remuneracao }}</td>
+            <td>{{ funcionario.tempo_de_servico }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum funcionário cadastrado</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
