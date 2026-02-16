@@ -17,7 +17,7 @@ erro: execução de scripts foi desabilitada neste sistema.
 
 # pip install django 
 
-listar comandos disponívies
+listar comandos 
 
 # django-admin
 

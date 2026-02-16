@@ -1,0 +1,23 @@
+<h1>Novo Funcionário</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Nome:</label>
+    <input type="text" name="nome"><br><br>
+
+    <label>Sobrenome:</label>
+    <input type="text" name="sobrenome"><br><br>
+    
+    <label>CPF:</label>
+    <input type="text" name="cpf"><br><br>
+
+    <label>Tempo de Serviço:</label>
+    <input type="number" name="tempo_de_servico"><br><br>
+
+    <label>Remuneração:</label>
+    <input type="number" step="0.01" name="remuneracao"><br><br>
+
+    <button type="submit">Salvar</button>
+    
+</form>

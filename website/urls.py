@@ -4,5 +4,6 @@ from . import views
 app_name = 'website'
 
 urlpatterns = [
-    path('', views.lista_funcionarios, name='index'),
+    path('lista-de-funcionarios/', views.lista_funcionarios, name='lista_funcionarios'),
+    path('novo-funcionario/', views.novo_funcionario, name='novo_funcionario'),
 ]
